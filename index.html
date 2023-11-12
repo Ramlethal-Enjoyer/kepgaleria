@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galéria Házi Feladat</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="gallery-container">
+  <img src="img/slide1.jpg" alt="Kép 1" class="gallery-image" data-large="slide1_large.jpg">
+  <img src="img/slide2.jpg" alt="Kép 2" class="gallery-image" data-large="slide2_large.jpg">
+  <img src="img/slide3.jpg" alt="Kép 3" class="gallery-image" data-large="slide3_large.jpg">
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content">
+    <img id="modal-image" src="img/slide1_large.jpg" alt="Nagy méretű kép">
+  </div>
+  <div class="modal-content">
+    <img id="modal-image" src="img/slide2_large.jpg" alt="Nagy méretű kép">
+  </div>
+  <div class="modal-content">
+    <img id="modal-image" src="img/slide3_large.jpg" alt="Nagy méretű kép">
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.gallery-image').click(function() {
+    $('#modal-image').attr('src', $(this).data('large'));
+    $('#myModal').fadeIn();
+  });
+
+  $('.close, #myModal').click(function() {
+    $('#myModal').fadeOut();
+  });
+
+  $('#modal-image').click(function(event) {
+    event.stopPropagation();
+  });
+});
+</script>
+
+</body>
+</html>
