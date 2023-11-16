@@ -7,43 +7,32 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-<div class="gallery-container">
-  <img src="img/slide1.jpg" alt="Kép 1" class="gallery-image" data-large="slide1_large.jpg">
-  <img src="img/slide2.jpg" alt="Kép 2" class="gallery-image" data-large="slide2_large.jpg">
-  <img src="img/slide3.jpg" alt="Kép 3" class="gallery-image" data-large="slide3_large.jpg">
-</div>
-
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <div class="modal-content">
-    <img id="modal-image" src="img/slide1_large.jpg" alt="Nagy méretű kép">
+  <div class="gallery-container">
+    <img src="img/slide1.jpg" alt="Kép 1" class="gallery-image" data-large="img/slide1.jpg">
+    <img src="img/slide2.jpg" alt="Kép 2" class="gallery-image" data-large="img/slide2.jpg">
+    <img src="img/slide3.jpg" alt="Kép 3" class="gallery-image" data-large="img/slide3.jpg">
   </div>
-  <div class="modal-content">
-    <img id="modal-image" src="img/slide2_large.jpg" alt="Nagy méretű kép">
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-image" alt="Nagy méretű kép">
+    </div>
   </div>
-  <div class="modal-content">
-    <img id="modal-image" src="img/slide3_large.jpg" alt="Nagy méretű kép">
-  </div>
-</div>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
   $('.gallery-image').click(function() {
-    $('#modal-image').attr('src', $(this).data('large'));
-    $('#myModal').fadeIn();
+    var largeImageSrc = $(this).data('large'); // Kinyeri a kép forrását
+    $('#modal-image').attr('src', largeImageSrc); // Beállítja a modal kép forrását
+    $('#myModal').fadeIn(); // Megjeleníti a modalt
   });
-
   $('.close, #myModal').click(function() {
-    $('#myModal').fadeOut();
+    $('#myModal').fadeOut(); // Elrejti a modalt
   });
-
   $('#modal-image').click(function(event) {
-    event.stopPropagation();
+    event.stopPropagation(); // Megakadályozza a modal bezárását a képre kattintáskor
   });
 });
 </script>
-
 </body>
-</html>
+</html> 
